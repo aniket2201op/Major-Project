@@ -16,7 +16,7 @@ credentials = {
         "usernames":{
             "jsmith92":{
                 "name":"john smith",
-                "password":"$2b$12$HUxcAwtMpfPNS60/g190cujUgbTVD9Xl0ai65Oy7k7Kt8GhbxtsUe�a"
+                
                 }
                      
             }
@@ -27,7 +27,7 @@ file_path = Path(__file__).parent / "hashed_pw.pkl"
 with file_path.open("rb") as file:
     hashed_passwords = pickle.load(file)
 
-authenticator = stauth.Authenticate(credentials,
+authenticator = stauth.Authenticate(credentials['usernames']['jsmith92'],
     "sales_dashboard", "abcdef", cookie_expiry_days=0)
 
 name, authentication_status, username = authenticator.login("Login", "main")
